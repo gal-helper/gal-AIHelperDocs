@@ -70,7 +70,8 @@ CREATE TABLE ai_message_info (
     "parent_id"          INT8,                                  -- 当前会话的父消息序列
     "role"               VARCHAR(50),                           -- 角色，例如 USER、ASSISTANT
     "message"            TEXT,                                  -- 消息内容
-    "create_time"        TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP  -- 创建时间
+    "create_time"        TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP, -- 创建时间
+	"update_time"        TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP  -- 修改时间
 );
 
 -- 添加字段注释
@@ -82,6 +83,7 @@ COMMENT ON COLUMN ai_message_info."parent_id" IS '当前会话的父消息序列
 COMMENT ON COLUMN ai_message_info."role" IS '角色，例如 USER、ASSISTANT';
 COMMENT ON COLUMN ai_message_info."message" IS '消息内容';
 COMMENT ON COLUMN ai_message_info."create_time" IS '创建时间';
+COMMENT ON COLUMN ai_message_info."update_time" IS '修改时间';
 
 -- 6. 原子化函数创建
 CREATE OR REPLACE FUNCTION get_next_id(p_seq_name VARCHAR) 

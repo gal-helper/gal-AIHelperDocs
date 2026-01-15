@@ -1,0 +1,297 @@
+## DeepSeek网页研究
+// 接口：
+/chat/history_messages  GET
+// 参数：
+chat_session_id: 134c1ca1-62fc-44f4-aa6f-56e8a8736955
+cache_version: 6
+// 返回数据：
+// 1、命中缓存
+{
+  "code": 0,
+  "msg": "",
+  "data": {
+    "biz_code": 0,
+    "biz_msg": "",
+    "biz_data": {
+      "chat_session": {
+        "id": "134c1ca1-62fc-44f4-aa6f-56e8a8736955",
+        "title": "用户询问AI助手身份",
+        "title_type": "SYSTEM",
+        "pinned": false,
+        "updated_at": 1768197171.85,
+        "seq_id": 190360371,
+        "agent": "chat",
+        "version": 6,
+        "current_message_id": 5,
+        "inserted_at": 1768190267.692
+      },
+      "chat_messages": [],
+      "cache_control": "MERGE"
+    }
+  }
+}
+// 2、未命中缓存
+{
+  "code": 0,
+  "msg": "",
+  "data": {
+    "biz_code": 0,
+    "biz_msg": "",
+    "biz_data": {
+      "chat_session": {
+        "id": "aced8d16-08b3-4b73-9da7-dc009cbe33e0",
+        "title": "学习相关",
+        "title_type": "USER",
+        "pinned": false,
+        "updated_at": 1767841898.287,
+        "seq_id": 190005098,
+        "agent": "chat",
+        "version": 87,
+        "current_message_id": 87,
+        "inserted_at": 1743779402.306
+      },
+      "chat_messages": [
+        {
+          "message_id": 1,
+          "parent_id": null,
+          "model": "",
+          "role": "USER",
+          "thinking_enabled": true,
+          "ban_edit": false,
+          "ban_regenerate": false,
+          "status": "FINISHED",
+          "accumulated_token_usage": 8,
+          "files": [],
+          "feedback": null,
+          "inserted_at": 1743779402.582,
+          "search_enabled": false,
+          "fragments": [
+            {
+              "id": 1,
+              "type": "REQUEST",
+              "content": "新技术的学习相关"
+            }
+          ],
+          "has_pending_fragment": false,
+          "auto_continue": false
+        },
+        {
+          "message_id": 2,
+          "parent_id": 1,
+          "model": "",
+          "role": "ASSISTANT",
+          "thinking_enabled": true,
+          "ban_edit": false,
+          "ban_regenerate": false,
+          "status": "FINISHED",
+          "accumulated_token_usage": 1011,
+          "files": [],
+          "feedback": null,
+          "inserted_at": 1743779402.582,
+          "search_enabled": false,
+          "fragments": [
+            {
+              "id": 1,
+              "type": "THINK",
+              "content": "嗯，用户问的是关于新技术学习相关的内容，我需要好好思考一下怎么回答。首先，用户可能想了解如何高效学习新技术，或者是遇到学习上的困难需要解决方法。可能他们是个学生，或者刚进入职场的新人，想要提升自己的技能。\n\n我得先确定用户的具体需求。他们可能想知道学习新技术的步骤、资源推荐、克服挑战的方法，或者如何保持动力。不过问题比较笼统，可能需要我覆盖多个方面。\n\n接下来，我需要整理学习新技术的常见方法。比如明确目标、系统化学习、实践项目、利用资源等。这些都是比较基础但重要的点。然后，资源推荐部分，像在线课程平台、文档、社区、书籍等，这些都是用户可能需要的。\n\n还要考虑学习中的常见挑战，比如信息过载、动力不足、时间管理，以及如何应对技术更新快的问题。这部分需要给出实际可行的建议，比如分解目标、建立学习习惯、时间管理技巧等。\n\n另外，用户可能对特定技术感兴趣，比如AI、区块链、云计算等，是否需要简要介绍这些技术的学习路径？不过可能用户更希望得到通用的方法，而不是具体技术细节。所以可能需要分开讨论，先讲通用方法，再提热门技术的学习建议。\n\n最后，总结部分要强调持续学习的重要性，保持好奇心和实践。可能还要提醒用户选择适合自己的方法，灵活调整。\n\n需要注意的是，回答要结构清晰，分点明确，让用户容易阅读。同时语言要口语化，避免太技术化的术语，保持自然。还要检查是否有遗漏的重要点，比如实践的重要性，或者如何找到学习伙伴等。\n\n现在把这些思考整理成一个连贯的回答，确保覆盖主要方面，帮助用户全面了解如何学习新技术，并解决他们可能遇到的问题。",
+              "elapsed_secs": 18.022055,
+              "references": [],
+              "stage_id": 0
+            },
+            {
+              "id": 2,
+              "type": "RESPONSE",
+              "content": "学习新技术是个人成长和职业发展的重要部分，尤其是在技术快速迭代的今天。以下是系统化的学习建议和资源推荐，帮助你更高效地掌握新技术：\n\n---\n\n### **一、学习新技术的通用步骤**\n1. **明确目标**  \n   - **为什么学？** 职业需求、兴趣驱动，还是解决特定问题？明确动机能增强学习动力。  \n   - **学什么？** 选择与目标直接相关的技术栈（如前端开发选React，数据分析学Python）。  \n\n2. **建立知识框架**  \n   - **官方文档**：从技术官网的文档入手（如Python的[Python.org](https://www.python.org/doc/)，React的[React Docs](https://react.dev/learn)），掌握核心概念和设计逻辑。  \n   - **知识图谱**：用思维导图整理技术的关键模块（如编程语言需掌握语法、数据结构、常用库等）。  \n\n3. **实践驱动学习**  \n   - **小项目练习**：例如学习Web开发时，从搭建个人博客开始，逐步加入交互功能。  \n   - **参与开源**：通过GitHub贡献代码（如修复文档错误、解决简单Issue）积累实战经验。  \n\n4. **刻意练习与反馈**  \n   - **代码审查**：在社区（如Stack Overflow、Reddit）分享代码，接受他人建议。  \n   - **复盘总结**：记录学习中的错误和解决方案，形成“避坑指南”。\n\n---\n\n### **二、高效学习工具与资源**\n1. **在线学习平台**  \n   - **系统性课程**：Coursera（名校课程）、Udemy（实战项目）、freeCodeCamp（免费编程训练）。  \n   - **交互式练习**：Codecademy（实时编码）、LeetCode（算法刷题）。  \n\n2. **技术社区与资讯**  \n   - **问答社区**：Stack Overflow（解决问题）、知乎技术专栏（中文优质内容）。  \n   - **行业动态**：Hacker News、TechCrunch跟踪技术趋势，订阅Newsletter（如TLDR Tech）。  \n\n3. **工具辅助**  \n   - **代码沙盒**：CodePen（前端）、Jupyter Notebook（数据分析）。  \n   - **AI工具**：用ChatGPT解释代码逻辑，GitHub Copilot辅助编程。  \n\n---\n\n### **三、应对常见挑战的解决方案**\n1. **信息过载**  \n   - **20/80法则**：聚焦技术核心功能（如学Python先掌握Pandas/NumPy，而非所有库）。  \n   - **信息筛选**：优先看高星GitHub仓库、官方推荐的教程。  \n\n2. **动力不足**  \n   - **微习惯法**：每天学15分钟，搭配工具如Forest App防止分心。  \n   - **成就记录**：用Notion建立学习日志，可视化进度。  \n\n3. **技术迭代快**  \n   - **底层原理优先**：例如学前端框架前理解JavaScript原型链、事件循环机制。  \n   - **关注生态变化**：通过技术雷达（如ThoughtWorks Tech Radar）追踪关键趋势。  \n\n---\n\n### **四、热门技术领域学习路径举例**\n1. **人工智能/机器学习**  \n   - 基础：Python → 数学（线性代数、概率） → 框架（PyTorch/TensorFlow） → Kaggle竞赛。  \n   - 资源：Andrew Ng《机器学习》课程、Fast.ai实战教程。  \n\n2. **区块链开发**  \n   - 路径：Solidity语法 → 智能合约开发（Remix IDE） → DeFi协议分析（如Uniswap源码）。  \n   - 工具：Hardhat（开发框架）、Etherscan（链上数据）。  \n\n3. **云原生技术**  \n   - 核心：Docker → Kubernetes → 服务网格（Istio） → 云平台（AWS/GCP认证）。  \n   - 实践：用Terraform部署基础设施，参与CNCF沙盒项目。  \n\n---\n\n### **五、长期学习策略**\n- **T型能力模型**：1-2项技术深度专精（如React源码级掌握），同时扩展广度（了解DevOps、数据库等）。  \n- **技术复利**：每年投入20%时间学习新兴技术（如2024年关注AIGC、Web3工具链）。  \n- **知识输出**：通过技术博客、演讲或内部分享巩固理解（“费曼学习法”）。  \n\n---\n\n**关键点**：技术学习没有捷径，但科学的方法能大幅提升效率。保持好奇心，将学习融入项目或兴趣场景，避免陷入“纯理论”陷阱。例如，想学AI绘画，可直接用Stable Diffusion生成作品，再反向研究模型原理。",
+              "references": [],
+              "stage_id": 0
+            }
+          ],
+          "has_pending_fragment": false,
+          "auto_continue": false
+        },
+        {
+          "message_id": 4,
+          "parent_id": 2,
+          "model": "",
+          "role": "USER",
+          "thinking_enabled": true,
+          "ban_edit": false,
+          "ban_regenerate": false,
+          "status": "FINISHED",
+          "accumulated_token_usage": 1023,
+          "files": [],
+          "feedback": null,
+          "inserted_at": 1743863935.468,
+          "search_enabled": false,
+          "fragments": [
+            {
+              "id": 1,
+              "type": "REQUEST",
+              "content": "kotlin这门编程语言的应用场景有哪些"
+            }
+          ],
+          "has_pending_fragment": false,
+          "auto_continue": false
+        },
+      ],
+      "cache_control": "MERGE"
+    }
+  }
+}
+// 用途：
+用来获取用户所点击的当前会话的所有历史消息
+// 示例：
+https://chat.deepseek.com/api/v0/chat/history_messages?chat_session_id=134c1ca1-62fc-44f4-aa6f-56e8a8736955&cache_version=6
+
+// 接口：
+/chat_session/create    POST
+// 参数：
+{}
+// 返回数据：
+{
+  "code": 0,
+  "msg": "",
+  "data": {
+    "biz_code": 0,
+    "biz_msg": "",
+    "biz_data": {
+      "id": "053699ee-7bdb-401b-89ea-db0e5453613f",
+      "seq_id": 190429692,
+      "agent": "chat",
+      "title": null,
+      "title_type": "WIP",
+      "version": 0,
+      "current_message_id": null,
+      "pinned": false,
+      "inserted_at": 1768266492.869,
+      "updated_at": 1768266492.869
+    }
+  }
+}
+// 用途：
+用来生成session_id，以及其他信息
+// 示例：
+https://chat.deepseek.com/api/v0/chat_session/create
+
+// 接口：
+/chat/create_pow_challenge
+// 参数：
+{
+  "target_path": "/api/v0/chat/completion"
+}
+// 返回数据：
+{
+  "code": 0,
+  "msg": "",
+  "data": {
+    "biz_code": 0,
+    "biz_msg": "",
+    "biz_data": {
+      "challenge": {
+        "algorithm": "DeepSeekHashV1",
+        "challenge": "ee7726ed26c6c05cedba3dd5c78c73ce6f3b3e6b4853f1c35290de929677b765",
+        "salt": "2de000a494d9213e785a",
+        "signature": "10410630c0c41c79979ebe7487d57d8a048ea5dab28643bece62fa89f055f663",
+        "difficulty": 144000,
+        "expire_at": 1768266793001,
+        "expire_after": 300000,
+        "target_path": "/api/v0/chat/completion"
+      }
+    }
+  }
+}
+// 用途：
+目前未知，可能是加解密的算法？
+// 示例：
+https://chat.deepseek.com/api/v0/chat/create_pow_challenge
+Payload: {
+  "target_path": "/api/v0/chat/completion"
+}
+
+// 接口：
+/chat/completion      POST
+// 参数：
+{
+  "chat_session_id": "053699ee-7bdb-401b-89ea-db0e5453613f",
+  "parent_message_id": null,
+  "prompt": "我问你1+1，请你简单回答下“等于2”",
+  "ref_file_ids": [],
+  "thinking_enabled": false,
+  "search_enabled": false,
+  "client_stream_id": "20260113-60a4c091db9941dc"
+}
+// 请求头：
+content-type text/event-stream; charset=utf-8
+
+// 返回数据：
+event: ready
+data: {"request_message_id":1,"response_message_id":2}
+
+event: update_session
+data: {"updated_at":1768266494.313266}
+
+data: {"v":{"response":{"message_id":2,"parent_id":1,"model":"","role":"ASSISTANT","thinking_enabled":false,"ban_edit":false,"ban_regenerate":false,"status":"WIP","accumulated_token_usage":0,"files":[],"feedback":null,"inserted_at":1768266494.303761,"search_enabled":false,"fragments":[],"has_pending_fragment":true,"auto_continue":false}}}
+
+data: {"p":"response","o":"BATCH","v":[{"p":"fragments","o":"APPEND","v":[{"id":1,"type":"RESPONSE","content":"等于","references":[],"stage_id":1}]},{"p":"has_pending_fragment","o":"SET","v":false}]}
+
+data: {"p":"response/fragments/-1/content","o":"APPEND","v":"2"}
+
+data: {"p":"response","o":"BATCH","v":[{"p":"status","v":"FINISHED"},{"p":"accumulated_token_usage","v":45}]}
+
+event: finish
+data: {}
+
+event: update_session
+data: {"updated_at":1768266494.515827}
+
+event: title
+data: {"content":"用户询问1+1等于几"}
+
+event: close
+data: {"click_behavior":"none","auto_resume":false}
+// 用途：
+用户提问后，响应式地回复用户大模型的回答
+// 示例：
+https://chat.deepseek.com/api/v0/chat/completion
+Payload: {
+  "chat_session_id": "053699ee-7bdb-401b-89ea-db0e5453613f",
+  "parent_message_id": null,
+  "prompt": "我问你1+1，请你简单回答下“等于2”",
+  "ref_file_ids": [],
+  "thinking_enabled": false,
+  "search_enabled": false,
+  "client_stream_id": "20260113-60a4c091db9941dc"
+}
+
+// 接口：
+
+// 参数：
+
+// 返回数据：
+
+// 用途：
+
+// 示例：
+
+
+{
+  "code": 0,
+  "msg": "",
+  "data": {
+    "biz_code": 0,
+    "biz_msg": "",
+    "biz_data": {
+      "version": 1,
+      "settings": {
+        "banner": {
+          "id": 260403799,
+          "value": null
+        }
+      }
+    }
+  }
+}
+
+
+
+
