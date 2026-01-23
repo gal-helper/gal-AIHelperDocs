@@ -1,0 +1,19 @@
+# requirements.txt
+# Core dependencies
+fastapi>=0.104.0
+uvicorn>=0.24.0
+asyncpg>=0.29.0
+aiohttp>=3.9.0
+python-dotenv>=1.0.0
+
+# AI/ML
+numpy>=1.24.0
+
+# Optional: For advanced text processing
+# sentence-transformers>=2.2.2
+# langchain>=0.1.0
+# tiktoken>=0.5.0
+
+# Development
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
