@@ -46,7 +46,6 @@ CREATE TABLE ai_chat_session_info (
     "id"           INT8 PRIMARY KEY,                      -- ID (INT8 对应 Java 的 Long)
 	"chat_session_code" varchar(50) UNIQUE,               -- 会话编码
     "user_intent"  INT4,                                  -- 用户意图 (存储 1, 2, 3, 4 等编号)
-    "chat_session_memory" JSONB,                          -- 会话记忆 (JSONB 格式，存储上下文)
 	"current_message_id" INT8,                            -- 当前的消息序列
     "create_time"  TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP, -- 创建时间 (带时区)
     "update_time"  TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP  -- 修改时间 (带时区)
@@ -57,10 +56,10 @@ COMMENT ON TABLE ai_chat_session_info IS '会话信息记录表';
 COMMENT ON COLUMN ai_chat_session_info."id" IS 'ID';
 COMMENT ON COLUMN ai_chat_session_info."chat_session_code" IS '会话编码';
 COMMENT ON COLUMN ai_chat_session_info."user_intent" IS '用户意图';
-COMMENT ON COLUMN ai_chat_session_info."chat_session_memory" IS '会话记忆';
 COMMENT ON COLUMN ai_chat_session_info."current_message_id" IS '当前的消息序列';
 COMMENT ON COLUMN ai_chat_session_info."create_time" IS '创建时间';
 COMMENT ON COLUMN ai_chat_session_info."update_time" IS '修改时间';
+
 
 -- 创建消息记录表
 CREATE TABLE ai_message_info (
@@ -70,7 +69,8 @@ CREATE TABLE ai_message_info (
     "parent_id"          INT8,                                  -- 当前会话的父消息序列
     "role"               VARCHAR(50),                           -- 角色，例如 USER、ASSISTANT
     "message"            TEXT,                                  -- 消息内容
-    "create_time"        TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP  -- 创建时间
+    "create_time"        TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP, -- 创建时间
+	"update_time"        TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP  -- 修改时间
 );
 
 -- 添加字段注释
@@ -82,6 +82,33 @@ COMMENT ON COLUMN ai_message_info."parent_id" IS '当前会话的父消息序列
 COMMENT ON COLUMN ai_message_info."role" IS '角色，例如 USER、ASSISTANT';
 COMMENT ON COLUMN ai_message_info."message" IS '消息内容';
 COMMENT ON COLUMN ai_message_info."create_time" IS '创建时间';
+COMMENT ON COLUMN ai_message_info."update_time" IS '修改时间';
+
+-- 创建Langchain的Vector表
+DROP TABLE IF EXISTS document_embeddings CASCADE;  
+CREATE TABLE document_embeddings (                                                                                                                                                          
+	 langchain_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),                                                                                                                        
+	 document_content TEXT,    -- 文档内容                                                                                                                                                       
+	 embedding VECTOR(1536),   -- 向量，维度取决于你的 embedding 模型                                                                                                                                                            
+	 custom_metadata JSONB,    -- 自定义元组数据                                                                                                                                     
+	 langchain_metadata JSONB  -- langchain元数据                                                                                                                                                       
+);                                                                                                                                                                                          
+																																														 
+-- 为 JSONB 字段创建 GIN 索引，支持高效查询                                                                                                                                                 
+CREATE INDEX idx_custom_metadata ON document_embeddings USING GIN (custom_metadata);                                                                                                        
+CREATE INDEX idx_langchain_metadata ON document_embeddings USING GIN (langchain_metadata);                                                                                                            
+																																														 
+-- 向量索引                                                                                                                                                                                 
+CREATE INDEX ON document_embeddings USING ivfflat (embedding vector_cosine_ops)                                                                                                             
+WITH (lists = 100);       
+
+-- 添加字段注释
+COMMENT ON TABLE document_embeddings IS 'Langchain的Vector表';
+COMMENT ON COLUMN document_embeddings."langchain_id" IS 'ID';
+COMMENT ON COLUMN document_embeddings."document_content" IS '文档内容';
+COMMENT ON COLUMN document_embeddings."embedding" IS '向量，维度取决于你的 embedding 模型';
+COMMENT ON COLUMN document_embeddings."custom_metadata" IS '自定义元组数据';
+COMMENT ON COLUMN document_embeddings."langchain_metadata" IS 'langchain元数据';
 
 -- 6. 原子化函数创建
 CREATE OR REPLACE FUNCTION get_next_id(p_seq_name VARCHAR) 
