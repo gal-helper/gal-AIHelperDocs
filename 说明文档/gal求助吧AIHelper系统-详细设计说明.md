@@ -57,8 +57,8 @@ Galgame（美少女游戏）受众群体庞大且粘性极高，但用户在享�
 
 ### 4.1 开发工具 (Tools)
 
-- **后端开发：** IntelliJ IDEA (最佳 Java/Spring 支持) + Maven 3.9+。
-- **前端开发：** VS Code + Node.js 20+ + Vite (前端构建工具)。
+- **后端开发：** Python 3.10+ + FastAPI
+- **前端开发：** VS Code + Node.js 20+ + Vite。
 - **数据库管理：** pgAdmin 4 或 DBeaver (用于管理 PostgreSQL 及查看向量数据)。
 - **API 调试：** LangChain4j 内置日志或 Postman，用于观察 Prompt 与 LLM 的交互过程。
 - **部署运维：** 阿里云 ECS (Ubuntu 22.04 LTS) + Docker & Docker Compose (用于一键拉取 pgvector 镜像及应用部署)。
@@ -69,7 +69,7 @@ Galgame（美少女游戏）受众群体庞大且粘性极高，但用户在享�
 | ---- | ----------------- | ------------- |
 | 1    | JavaEE+python     | JDK 17+python3.10+ |
 | 2    | 数据库            | PostgreSQL 16 |
-| 3    | 应用服务器        | uvicorn(ASGI)  |
+| 3    | 应用服务器        | uvicorn(ASGI服务器)  |
 
 ### 4.3 技术选型 (Tech Stack Selection)
 
@@ -105,15 +105,33 @@ Galgame（美少女游戏）受众群体庞大且粘性极高，但用户在享�
 
 ### 5.2 应用架构
 
-暂无
+- 用户请求处理模块
+
+- AI 对话引擎（LangChain Agent）
+
+- 知识库检索模块（RAG）
+
+- 会话管理模块
 
 ### 5.3 业务架构
 
-暂无
+- 资源资讯获取
+
+- 游戏推荐评价
+
+- 报错排查解决
+
+- 技术讨论交流
 
 ### 5.4 数据架构
 
-暂无
+- ai_chat_session_info（会话表）
+
+- ai_message_info（消息表）
+
+- ai_documents（知识库文档表）
+
+- document_embeddings（向量存储表）
 
 ### 5.5 网络架构
 
